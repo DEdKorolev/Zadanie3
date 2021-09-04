@@ -28,8 +28,9 @@
 
 package task1;
 
-import java.sql.SQLOutput;
 import java.util.*;
+
+import static java.util.Collections.*;
 
 public class Task1 {
 
@@ -103,7 +104,7 @@ public class Task1 {
         map.put("тяжелая техника", fullCost(cars400));
 
         // Нахождение наибольшего значения в Map
-        Double max = Collections.max(map.values());
+        Double max = max(map.values());
 
         System.out.println("Тип авто имеющий наибольшую стоимость расходов:");
         // Проверка на наличие нескольких ключей с максимальным значением
@@ -114,7 +115,7 @@ public class Task1 {
         System.out.println();
 
         // Нахождение наименьшего значения в Map
-        Double min = Collections.min(map.values());
+        Double min = min(map.values());
 
         System.out.println("Тип авто имеющий наименьшую стоимость расходов:");
         // Проверка на наличие нескольких ключей с минимальным значением
@@ -140,9 +141,9 @@ public class Task1 {
     // Функция удаления дубликатов по номеру транспорта
     // Пробег и доп.параметр складываются
     public static void delDub(ArrayList<Cars> cars) {
-        int numder = 0;
-        int mileage = 0;
-        int parameter = 0;
+        int numder;
+        int mileage;
+        int parameter;
         for (int j = 0; j < cars.size(); j++) {
             Cars cars1 = cars.get(j);
             numder = cars1.getNumber();
@@ -174,29 +175,29 @@ public class Task1 {
     // Метод для сортировки пробега по возрастанию
     public static void sortMileageIncrease (ArrayList<Cars> cars) {
 
-        Comparator cmpMileageIncrease = new CmpMileageIncrease();
-        Collections.sort(cars, cmpMileageIncrease);
+        Comparator<Cars> cmpMileageIncrease = new CmpMileageIncrease();
+        cars.sort(cmpMileageIncrease);
     }
 
     // Метод для сортировки пробега по убыванию
     public static void sortMileageDecrease (ArrayList<Cars> cars) {
 
-        Comparator cmpMileageDecrease = new CmpMileageDecrease();
-        Collections.sort(cars, cmpMileageDecrease);
+        Comparator<Cars> cmpMileageDecrease = new CmpMileageDecrease();
+        cars.sort(cmpMileageDecrease);
     }
 
     // Метод для сортировки доп. параметра по возрастанию
     public static void sortParameterIncrease (ArrayList<Cars> cars) {
 
-        Comparator cmpParameterIncrease = new CmpParameterIncrease();
-        Collections.sort(cars, cmpParameterIncrease);
+        Comparator<Cars> cmpParameterIncrease = new CmpParameterIncrease();
+        cars.sort(cmpParameterIncrease);
     }
 
     // Метод для сортировки доп. параметра по убыванию
     public static void sortParameterDecrease (ArrayList<Cars> cars) {
 
-        Comparator cmpParameterDecrease = new CmpParameterDecrease();
-        Collections.sort(cars, cmpParameterDecrease);
+        Comparator<Cars> cmpParameterDecrease = new CmpParameterDecrease();
+        cars.sort(cmpParameterDecrease);
     }
 
     // Метод для вывода данных по транспорту из массива в консоль
