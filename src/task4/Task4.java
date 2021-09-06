@@ -38,18 +38,18 @@ public class Task4 {
             V value = map.get(key); // Запрашиваем значение у ключа из map и присваиваем значение переменной value
 
             // Сопоставляет новый ключ и новый сет значений
-            // Если ключ (значение value) не повторяется keySet обнуляется
-            // Если ключ (значение value) повторяется keySet не обнуляется
+            // Если ключ (значение value) не повторяется keysSet обнуляется
+            // Если ключ (значение value) повторяется keysSet не обнуляется
             resultMap.compute(value, (val, keysSet) -> {
 
-                // Если keySet не существует, то создать новый keySet
+                // Если keysSet не существует, то создать новый keysSet
                 if(keysSet == null){
                     keysSet = new HashSet<>();
                 }
 
-                keysSet.add(key); // Добавить в keySet значение
+                keysSet.add(key); // Добавить в keysSet значение
 
-                return keysSet; // Вернуть keySet
+                return keysSet; // Вернуть keysSet
             });
         }
         return resultMap; // Вернуть resultMap
